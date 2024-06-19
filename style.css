@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --scale__percent: 3;
+    --circle-dasharray: calc(2 * 3.14159 * 30);
+    --circle-dashoffset: calc(var(--circle-dasharray) * (1 - var(--scale__percent) / 100));
+    --mainColor: #3579F5;
+    --textMainColor: #ffffff;
+    --mainFont: Inter
+}
+
+body {
+    font-family: var(--mainFont);
+    font-weight: 400;
+}
+
+.container {
+    width: 900px;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+.bar {
+    color: var(--textMainColor);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--mainColor);
+    width: 743px;
+    height: 91px;
+    border-radius: 10px;
+    padding: 16px 18px 15px 22px;
+}
+
+.bar__info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.bar__scale {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+
+.scale { 
+    position: relative;
+}
+
+.scale__svg {
+    transform: rotate(-90deg);
+}
+
+.scale__circle-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.5);
+    stroke-width: 1;
+}
+
+.scale__circle {
+    fill: none;
+    stroke: rgba(255, 255, 255, 1);
+    stroke-width: 2;
+    stroke-dasharray: var(--circle-dasharray);
+    stroke-dashoffset: var(--circle-dashoffset);
+    transition: stroke-dashoffset 0.6s ease;
+}
+
+.scale__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    fill: var(--textMainColor);
+    color: var(--textMainColor);
+}
+
+.bar__text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.bar__topic {
+    display: block;
+    background-color: #2364DB;
+    font-size: 12px;
+    line-height: 18px;
+    width: 76px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 0 13px;
+}
+
+.bar__status {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.bar__desc {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.bar__btn {
+    font-family: var(--mainFont);
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--mainColor);
+    background-color: #ffffff;
+    width: 170px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
